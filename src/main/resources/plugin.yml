@@ -45,5 +45,19 @@ commands:
     description: heal all players
     permission: basics.healall
 
+  EC:
+    aliases:
+      - ec
+      -
+      - enderchest
+    description: open the economy menu
+    permission: basics.ec
+
+  Fly:
+    aliases:
+      - fly
+    description: enable/disable fly mode
+    permission: basics.fly
+
 
 

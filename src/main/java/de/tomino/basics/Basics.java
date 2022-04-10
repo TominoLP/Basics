@@ -21,6 +21,8 @@ public final class Basics extends JavaPlugin {
         getCommand("TpHereAll").setExecutor(new TpHereAll());
         getCommand("Heal").setExecutor(new Heal());
         getCommand("HealAll").setExecutor(new HealAll());
+        getCommand("EC").setExecutor(new EnderChest());
+        getCommand("Fly").setExecutor(new Fly());
 
 
         // Register events
