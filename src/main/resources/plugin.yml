@@ -39,6 +39,11 @@ commands:
     description: heal a player
     permission: basics.heal
 
+  HealAll:
+    aliases:
+      - healall
+    description: heal all players
+    permission: basics.healall
 
 
 
