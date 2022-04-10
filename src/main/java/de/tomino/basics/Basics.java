@@ -1,6 +1,10 @@
 package de.tomino.basics;
 
 import de.tomino.basics.commands.*;
+import de.tomino.basics.commands.heal.HealCommand;
+import de.tomino.basics.commands.teleport.Teleport;
+import de.tomino.basics.commands.teleport.TpHere;
+import de.tomino.basics.commands.teleport.TpHereAll;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Basics extends JavaPlugin {
