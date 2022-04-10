@@ -6,7 +6,7 @@ authors: [ TominoLP ]
 description: a Plugin for for basic commands
 website: https://github.com/TominoLP/Basics
 commands:
-  gm:
+  Gm:
     aliases:
       - gamemode
     description: change the gamemode of a player
@@ -19,17 +19,26 @@ commands:
     description: teleport a player to another player
     permission: basics.tp
 
-  Tphere:
+  TpHere:
     aliases:
       - tphere
       - teleporthere
     description: teleport a playerto your location
     permission: basics.tphere
 
-  Tpall:
+  TpHereAll:
     aliases:
       - tpall
       - teleportall
     description: teleport all players to your location
     permission: basics.tpall
+
+  Heal:
+    aliases:
+      - heal
+    description: heal a player
+    permission: basics.heal
+
+
+
 

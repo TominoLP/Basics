@@ -1,9 +1,6 @@
 package de.tomino.basics;
 
-import de.tomino.basics.commands.GameMode;
-import de.tomino.basics.commands.Teleport;
-import de.tomino.basics.commands.TpHere;
-import de.tomino.basics.commands.TpHereAll;
+import de.tomino.basics.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Basics extends JavaPlugin {
@@ -13,10 +10,11 @@ public final class Basics extends JavaPlugin {
     public void onEnable() {
 
         // Register commands
-        getCommand("gm").setExecutor(new GameMode());
+        getCommand("Gm").setExecutor(new GameMode());
         getCommand("Tp").setExecutor(new Teleport());
         getCommand("TpHere").setExecutor(new TpHere());
         getCommand("TpHereAll").setExecutor(new TpHereAll());
+        getCommand("Heal").setExecutor(new HealCommand());
 
 
         // Register events
