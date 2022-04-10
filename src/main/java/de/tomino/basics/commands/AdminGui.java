@@ -17,7 +17,7 @@ public class AdminGui implements CommandExecutor {
 
         if (sender instanceof Player) {
             if (sender.hasPermission("basics.admin")) {
-                Inventory inv = Bukkit.createInventory(null, 3*9, "Admin Gui");
+                Inventory inv = Bukkit.createInventory(null, 3 * 9, "Admin Gui");
 
                 ItemStack BG = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
                 ItemMeta BGmeta = BG.getItemMeta();
@@ -73,9 +73,6 @@ public class AdminGui implements CommandExecutor {
 
             }
         }
-
-
-
 
 
         return false;

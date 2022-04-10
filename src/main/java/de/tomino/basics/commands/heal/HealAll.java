@@ -12,7 +12,7 @@ public class HealAll implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (sender.hasPermission("basics.heal.all") || sender.hasPermission("basics.*")) {
-            for (Player players: Bukkit.getOnlinePlayers()) {
+            for (Player players : Bukkit.getOnlinePlayers()) {
 
                 players.setHealth(20);
                 players.setFoodLevel(20);

@@ -13,7 +13,7 @@ public class TpHereAll implements CommandExecutor {
 
         if (sender.hasPermission("basics.tphereall") || sender.hasPermission("basics.*")) {
 
-            for (Player players: Bukkit.getOnlinePlayers()) {
+            for (Player players : Bukkit.getOnlinePlayers()) {
 
                 Player executer = Bukkit.getPlayer(sender.getName());
                 players.teleport(executer.getLocation());

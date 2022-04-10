@@ -17,8 +17,7 @@ public class BlockBreak implements Listener {
         } else {
             if (BlockBreakSwitch.BBActive) {
                 event.setCancelled(true);
-            }
-            else {
+            } else {
                 event.setCancelled(false);
             }
 

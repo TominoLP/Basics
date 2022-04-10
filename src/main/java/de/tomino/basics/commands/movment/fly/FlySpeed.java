@@ -18,8 +18,7 @@ public class FlySpeed implements CommandExecutor {
             if (args.length == 0) {
                 executor.setFlySpeed(0.1F);
                 executor.sendMessage("§aFlySpeed set to 1");
-            }
-            else if (args.length == 1) {
+            } else if (args.length == 1) {
                 try {
                     float speedI = (float) Double.parseDouble(args[0]);
                     float speedo = speedI / 10;
