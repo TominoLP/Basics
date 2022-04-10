@@ -1,4 +1,4 @@
-package de.tomino.basics.commands.teleport;
+package de.tomino.basics.commands.movment.teleport;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

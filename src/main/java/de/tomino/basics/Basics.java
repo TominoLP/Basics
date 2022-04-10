@@ -3,9 +3,11 @@ package de.tomino.basics;
 import de.tomino.basics.commands.*;
 import de.tomino.basics.commands.heal.Heal;
 import de.tomino.basics.commands.heal.HealAll;
-import de.tomino.basics.commands.teleport.Teleport;
-import de.tomino.basics.commands.teleport.TpHere;
-import de.tomino.basics.commands.teleport.TpHereAll;
+import de.tomino.basics.commands.movment.fly.Fly;
+import de.tomino.basics.commands.movment.fly.FlySpeed;
+import de.tomino.basics.commands.movment.teleport.Teleport;
+import de.tomino.basics.commands.movment.teleport.TpHere;
+import de.tomino.basics.commands.movment.teleport.TpHereAll;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Basics extends JavaPlugin {
@@ -23,6 +25,7 @@ public final class Basics extends JavaPlugin {
         getCommand("HealAll").setExecutor(new HealAll());
         getCommand("EC").setExecutor(new EnderChest());
         getCommand("Fly").setExecutor(new Fly());
+        getCommand("FlySpeed").setExecutor(new FlySpeed());
 
 
         // Register events
