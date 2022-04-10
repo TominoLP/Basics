@@ -66,5 +66,28 @@ commands:
     description: set the fly speed
     permission: basics.flyspeed
 
+  BlockBreakSwitch:
+    aliases:
+      - blockbreakswitch
+      - bbs
+    description: enable/disable block break
+    permission: basics.blockbreak
+
+  AdminGui:
+    aliases:
+      - admingui
+      - ag
+    description: open the admin gui
+    permission: basics.admin
+
+
+  AdminComs:
+    aliases:
+      - admincoms
+      - ac
+      - admin
+    description: use admin commands
+    permission: basics.admincoms
+
 
 
