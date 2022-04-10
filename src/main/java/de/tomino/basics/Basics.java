@@ -1,7 +1,7 @@
 package de.tomino.basics;
 
 import de.tomino.basics.commands.*;
-import de.tomino.basics.commands.heal.HealCommand;
+import de.tomino.basics.commands.heal.Heal;
 import de.tomino.basics.commands.teleport.Teleport;
 import de.tomino.basics.commands.teleport.TpHere;
 import de.tomino.basics.commands.teleport.TpHereAll;
@@ -18,7 +18,7 @@ public final class Basics extends JavaPlugin {
         getCommand("Tp").setExecutor(new Teleport());
         getCommand("TpHere").setExecutor(new TpHere());
         getCommand("TpHereAll").setExecutor(new TpHereAll());
-        getCommand("Heal").setExecutor(new HealCommand());
+        getCommand("Heal").setExecutor(new Heal());
 
 
         // Register events

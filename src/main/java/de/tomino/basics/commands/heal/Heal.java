@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class HealCommand implements CommandExecutor {
+public class Heal implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -35,7 +35,7 @@ public class HealCommand implements CommandExecutor {
             }
 
         } else {
-            sender.sendMessage("§cYou don't have the permission to use this command!");
+            sender.sendMessage("§cYou don't have the permission to use this command! \n§cYou need the permission: basics.heal");
         }
 
         return false;
