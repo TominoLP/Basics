@@ -52,7 +52,7 @@ public class GameMode implements CommandExecutor {
             if (args.length == 0) {
                 player.sendMessage("§aYou are now in " + player.getGameMode().toString().toLowerCase() + " mode!");
 
-            } else {
+            } else if (player.hasPermission("basics.gamemode.others") || player.hasPermission("basics.*")) {
 
                 pName = args[0];
                 if (pName == null) {
