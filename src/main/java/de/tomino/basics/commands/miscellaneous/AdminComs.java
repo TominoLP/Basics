@@ -15,12 +15,15 @@ public class AdminComs implements CommandExecutor {
         if (sender.hasPermission("basics.admin") || sender.hasPermission("basics.*")) {
             if (args.length == 0) {
                 sender.sendMessage("§c/admin <reload|stop|maintence>");
+
             } else if (args[0].equalsIgnoreCase("reload")) {
                 sender.sendMessage("§aReloading...");
                 sender.getServer().reload();
+
             } else if (args[0].equalsIgnoreCase("stop")) {
                 Bukkit.broadcastMessage("§cServer wird in 3m gestoppt!");
                 Bukkit.getScheduler().runTaskLater((Bukkit.getPluginManager().getPlugin("Basics")), new Runnable() {
+
                     @Override
                     public void run() {
                         Bukkit.getServer().shutdown();
@@ -41,13 +44,10 @@ public class AdminComs implements CommandExecutor {
                             p.kickPlayer("§cServer wird wegen Wartungsarbeiten heruntergefahren!");
 
                         }
-
-
                     }
                 }
             }
         }
-
         return false;
     }
 }

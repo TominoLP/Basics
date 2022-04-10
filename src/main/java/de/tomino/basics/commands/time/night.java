@@ -30,9 +30,7 @@ public class night implements CommandExecutor {
         }, 0L, 1L);
         for (Player player : Bukkit.getOnlinePlayers()) {
             player.sendMessage("The night has fallen...");
-
         }
-
 
         return false;
     }

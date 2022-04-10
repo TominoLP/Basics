@@ -13,6 +13,8 @@ public class AdminGuiClick implements Listener {
     @EventHandler()
     public void onClick(InventoryClickEvent event) {
 
+        Player player = (Player) event.getWhoClicked();
+
         if (event.getView().getTitle().equalsIgnoreCase("Admin Gui")) {
             event.setCancelled(true);
             if (event.getCurrentItem().getItemMeta().getDisplayName().equals(" ")) {
@@ -36,8 +38,11 @@ public class AdminGuiClick implements Listener {
 
                 if (maintenance) {
                     maintenance = false;
+                    player.sendMessage("§aMaintenance wurde deaktiviert!");
+
                 } else {
                     maintenance = true;
+                    player.sendMessage("§aMaintenance wurde aktiviert!");
                 }
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     if (!(p.hasPermission("basics.admin") || p.hasPermission("basics.*"))) {

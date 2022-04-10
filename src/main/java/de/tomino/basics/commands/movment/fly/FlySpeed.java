@@ -33,6 +33,7 @@ public class FlySpeed implements CommandExecutor {
                     sender.sendMessage("§cInvalid speed!\n §c/flyspeed <speed>");
                 }
             }
+
             if (args.length == 2) {
 
                 Player target = Bukkit.getPlayer(args[1]);
@@ -50,7 +51,6 @@ public class FlySpeed implements CommandExecutor {
                 } catch (IllegalArgumentException e) {
                     sender.sendMessage("§cInvalid speed!\n §c/flyspeed <speed>");
                 }
-
             }
         } else {
             sender.sendMessage("§cYou don't have the permission to use this command!");

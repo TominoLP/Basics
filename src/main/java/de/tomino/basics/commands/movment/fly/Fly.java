@@ -22,6 +22,7 @@ public class Fly implements CommandExecutor {
                 Player executor = Bukkit.getPlayer(sender.getName());
                 executor.setAllowFlight(!executor.getAllowFlight());
                 executor.sendMessage("§aDu hast den Fly-Modus §7" + (executor.getAllowFlight() ? "§aaktiviert" : "§cdeaktiviert") + "§a.");
+
             } else {
                 sender.sendMessage("§cDu hast keine Berechtigung, diesen Befehl zu benutzen.");
             }
