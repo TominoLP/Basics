@@ -80,7 +80,6 @@ commands:
     description: open the admin gui
     permission: basics.admin
 
-
   AdminComs:
     aliases:
       - admincoms
@@ -88,6 +87,18 @@ commands:
       - admin
     description: use admin commands
     permission: basics.admincoms
+
+  Day:
+    aliases:
+      - day
+    description: set the time to day
+    permission: basics.time
+
+  Night:
+    aliases:
+      - night
+    description: set the time to night
+    permission: basics.time
 
 
 

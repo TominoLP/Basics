@@ -1,13 +1,15 @@
 package de.tomino.basics;
 
-import de.tomino.basics.commands.*;
 import de.tomino.basics.commands.heal.Heal;
 import de.tomino.basics.commands.heal.HealAll;
+import de.tomino.basics.commands.miscellaneous.*;
 import de.tomino.basics.commands.movment.fly.Fly;
 import de.tomino.basics.commands.movment.fly.FlySpeed;
 import de.tomino.basics.commands.movment.teleport.Teleport;
 import de.tomino.basics.commands.movment.teleport.TpHere;
 import de.tomino.basics.commands.movment.teleport.TpHereAll;
+import de.tomino.basics.commands.time.day;
+import de.tomino.basics.commands.time.night;
 import de.tomino.basics.listener.AdminGuiClick;
 import de.tomino.basics.listener.BlockBreak;
 import de.tomino.basics.listener.MaintenanceConect;
@@ -33,6 +35,9 @@ public final class Basics extends JavaPlugin {
         getCommand("BlockBreakSwitch").setExecutor(new BlockBreakSwitch());
         getCommand("AdminGui").setExecutor(new AdminGui());
         getCommand("AdminComs").setExecutor(new AdminComs());
+        getCommand("Day").setExecutor(new day());
+        getCommand("Night").setExecutor(new night());
+
 
         // Register events
         Bukkit.getPluginManager().registerEvents(new BlockBreak(), this);

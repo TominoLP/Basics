@@ -1,4 +1,4 @@
-package de.tomino.basics.commands;
+package de.tomino.basics.commands.miscellaneous;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

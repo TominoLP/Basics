@@ -1,4 +1,4 @@
-package de.tomino.basics.commands;
+package de.tomino.basics.commands.miscellaneous;
 
 import de.tomino.basics.listener.AdminGuiClick;
 import org.bukkit.Bukkit;

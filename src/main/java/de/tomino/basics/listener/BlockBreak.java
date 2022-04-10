@@ -1,6 +1,6 @@
 package de.tomino.basics.listener;
 
-import de.tomino.basics.commands.BlockBreakSwitch;
+import de.tomino.basics.commands.miscellaneous.BlockBreakSwitch;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
