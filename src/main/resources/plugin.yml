@@ -12,4 +12,24 @@ commands:
     description: change the gamemode of a player
     permission: basics.gm
 
+  Tp:
+    aliases:
+      - tp
+      - teleport
+    description: teleport a player to another player
+    permission: basics.tp
+
+  Tphere:
+    aliases:
+      - tphere
+      - teleporthere
+    description: teleport a playerto your location
+    permission: basics.tphere
+
+  Tpall:
+    aliases:
+      - tpall
+      - teleportall
+    description: teleport all players to your location
+    permission: basics.tpall
 

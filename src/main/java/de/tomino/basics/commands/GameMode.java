@@ -51,10 +51,9 @@ public class GameMode implements CommandExecutor {
                 }
             }
 
-
             if (args.length == 2) {
 
-
+                // check if player has permission
                 if (player.hasPermission("basics.gamemode.others") || player.hasPermission("basics.*")) {
 
                     pName = args[0];
@@ -65,12 +64,11 @@ public class GameMode implements CommandExecutor {
                     if (target != null) {
 
 
-
                         //set target gamemode to survival
                         if (Mode.equalsIgnoreCase("0") || Mode.equalsIgnoreCase("survival") || Mode.equalsIgnoreCase("s")) {
                             target.setGameMode(org.bukkit.GameMode.SURVIVAL);
 
-                            if (target.getName() == sender.getName()) {
+                            if (target.getName().equals(sender.getName())) {
                                 player.sendMessage("§aYou are now in survival mode!");
                             } else {
                                 target.sendMessage("§aYou are now in survival mode!");
@@ -81,7 +79,7 @@ public class GameMode implements CommandExecutor {
                         } else if (Mode.equalsIgnoreCase("1") || Mode.equalsIgnoreCase("creative") || Mode.equalsIgnoreCase("c")) {
                             target.setGameMode(org.bukkit.GameMode.CREATIVE);
 
-                            if (target.getName() == sender.getName()) {
+                            if (target.getName().equals(sender.getName())) {
                                 player.sendMessage("§aYou are now in creative mode!");
                             } else {
                                 target.sendMessage("§aYou are now in creative mode!");
@@ -92,7 +90,7 @@ public class GameMode implements CommandExecutor {
                         } else if (Mode.equalsIgnoreCase("2") || Mode.equalsIgnoreCase("adventure") || Mode.equalsIgnoreCase("a")) {
                             target.setGameMode(org.bukkit.GameMode.ADVENTURE);
 
-                            if (target.getName() == sender.getName()) {
+                            if (target.getName().equals(sender.getName())) {
                                 player.sendMessage("§aYou are now in adventure mode!");
                             } else {
                                 target.sendMessage("§aYou are now in adventure mode!");
@@ -103,7 +101,7 @@ public class GameMode implements CommandExecutor {
                         } else if (Mode.equalsIgnoreCase("3") || Mode.equalsIgnoreCase("spectator") || Mode.equalsIgnoreCase("sp")) {
                             target.setGameMode(org.bukkit.GameMode.SPECTATOR);
 
-                            if (target.getName() == sender.getName()) {
+                            if (target.getName().equals(sender.getName())) {
                                 player.sendMessage("§aYou are now in spectator mode!");
                             } else {
                                 target.sendMessage("§aYou are now in spectator mode!");
@@ -112,7 +110,6 @@ public class GameMode implements CommandExecutor {
                         } else {
                             sender.sendMessage("§cInvalid gamemode!\n Use /gm [player] [gamemode]");
                         }
-
 
 
                     } else {
