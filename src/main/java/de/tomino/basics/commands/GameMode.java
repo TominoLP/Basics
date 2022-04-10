@@ -23,7 +23,7 @@ public class GameMode implements CommandExecutor {
                 // check if player is player
                 if (!(sender instanceof Player)) {
                     sender.sendMessage("You must be a player to execute this command!");
-                    return false;
+                    return true;
                 } else {
 
                     // Set gamemode to survival
@@ -61,8 +61,7 @@ public class GameMode implements CommandExecutor {
 
                     Player target = Bukkit.getPlayer(pName);
 
-                    if (target != null) {
-
+                    if (target != null && target.isOnline()) {
 
                         //set target gamemode to survival
                         if (Mode.equalsIgnoreCase("0") || Mode.equalsIgnoreCase("survival") || Mode.equalsIgnoreCase("s")) {
