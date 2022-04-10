@@ -1,0 +1,7 @@
+name: Basics
+version: '${project.version}'
+main: de.tomino.basics.Basics
+api-version: 1.18
+authors: [ TominoLP ]
+description: a Plugin for for basic commands
+website: https://github.com/TominoLP/Basics
