@@ -15,14 +15,19 @@ import de.tomino.basics.listener.ChatLogger;
 import de.tomino.basics.listener.MaintenanceConect;
 import de.tomino.basics.utils.Config;
 import de.tomino.basics.utils.DiscordWebHook;
+import de.tomino.basics.utils.UpdaterAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 public final class Basics extends JavaPlugin {
 
     private static Basics instance;
+    private static final String currentVersion = "0.0.0";
 
     public static Basics getInstance() {
         return instance;
@@ -31,9 +36,11 @@ public final class Basics extends JavaPlugin {
     // Plugin startup logic
     @Override
     public void onEnable() {
-
         instance = getInstance();
         Config.load();
+
+        UpdaterAPI.setAutoDelete(true);
+        UpdaterAPI.downloadUpdater(new File("plugins/Basics/Updater.jar"));
 
         // Register commands
         Objects.requireNonNull(getCommand("Gm")).setExecutor(new GameMode());
@@ -77,7 +84,22 @@ public final class Basics extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        UpdaterAPI.getLatestReleaseFromGithub("TominoLP", "Basics", new Consumer<String[]>() {
+            @Override
+            public void accept(String[] strings) {
+                File newFile = new File("plugins/Basics-" + strings[0] + ".jar");
+                if(strings[0].contains("pre")) return;
+
+                if(UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
+                    System.out.println("[Basics] Outdated version found!");
+                    try {
+                        UpdaterAPI.update(strings[1], newFile);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }
 
