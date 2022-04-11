@@ -6,7 +6,7 @@ a Simple LightWeight Minecraft Plugin \
 just for the Basics
 
 <h2>Commands:</h2>
-<p1>Hey <p1/>
+
 ---
 
 <h3>Help</h3>
