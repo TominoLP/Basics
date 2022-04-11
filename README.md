@@ -1,21 +1,25 @@
-#Basics
 
----
+<h1>Basics</h1>
+
+
  
 a Simple LightWeight Minecraft Plugin \
 just for the Basics
 
-
-##Command:
+<h2>Commands:</h2>
 
 ---
-###Help 
-```/help``` \
-\
+
+<h3>Help</h3>
+
+```/help``` 
+
 gives you a list of all commands
+
 ---
 
-###GameMode
+<h3>GameMode</h3>
+
 ```/gm <PlayerName> <GameMode>``` 
 
 changes the GameMode of a Player 
@@ -31,7 +35,9 @@ usage:
 
 ---
 
-###Teleport
+
+<h3>Teleport</h3>
+
 ```/tp <PlayerName> <PlayerName>``` \
 \
 teleports a Player to another Player
@@ -45,7 +51,8 @@ usage:
 
 ---
 
-###Heal
+<h3>Heal</h3>
+
 ```/heal <PlayerName>``` \
 \
 set a Players Health and Hunger to 20 
@@ -57,7 +64,7 @@ usage:
 
 ---
 
-###Fly
+<h3>Fly</h3>
 
 Lets enable or disable the Flymode for a Player
 
@@ -71,7 +78,7 @@ usage:
 
 ---
 
-###AdminCommands
+<h3>AdminCommands</h3>
 
 ```/admin <Command>``` 
 
@@ -90,7 +97,7 @@ usage:
 
 ---
 
-###Time
+<h3>Time</h3>
 
 ```/<Time>``` 
 
