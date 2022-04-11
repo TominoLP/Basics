@@ -5,7 +5,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.server.ServerEvent;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -17,7 +16,7 @@ public class ChatLogger implements Listener {
         Calendar cal = Calendar.getInstance(Locale.GERMANY);
         String time = String.format("%02d:%02d:%02d", cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), cal.get(Calendar.SECOND));
 
-        DiscordWebHook.sendtoDC("[" + time + "]" +  event.getPlayer().getName() + ": " + event.getMessage());
+        DiscordWebHook.sendtoDC("[" + time + "]" + event.getPlayer().getName() + ": " + event.getMessage());
     }
 
     @EventHandler
@@ -25,7 +24,7 @@ public class ChatLogger implements Listener {
         Calendar cal = Calendar.getInstance(Locale.GERMANY);
         String time = String.format("%02d:%02d:%02d", cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), cal.get(Calendar.SECOND));
 
-        DiscordWebHook.sendtoDC("[" + time + "]" +  event.getPlayer().getName() + ": " + event.getMessage());
+        DiscordWebHook.sendtoDC("[" + time + "]" + event.getPlayer().getName() + ": " + event.getMessage());
     }
 
 

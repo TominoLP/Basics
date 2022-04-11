@@ -18,6 +18,8 @@ import de.tomino.basics.utils.DiscordWebHook;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class Basics extends JavaPlugin {
 
     private static Basics instance;
@@ -30,28 +32,28 @@ public final class Basics extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        instance = this;
+        instance = getInstance();
         Config.load();
 
         // Register commands
-        getCommand("Gm").setExecutor(new GameMode());
-        getCommand("Tp").setExecutor(new Teleport());
-        getCommand("TpHere").setExecutor(new TpHere());
-        getCommand("TpHereAll").setExecutor(new TpHereAll());
-        getCommand("Heal").setExecutor(new Heal());
-        getCommand("HealAll").setExecutor(new HealAll());
-        getCommand("EC").setExecutor(new EnderChest());
-        getCommand("Fly").setExecutor(new Fly());
-        getCommand("FlySpeed").setExecutor(new FlySpeed());
-        getCommand("BlockBreakSwitch").setExecutor(new BlockBreakSwitch());
-        getCommand("AdminGui").setExecutor(new AdminGui());
-        getCommand("AdminComs").setExecutor(new AdminComs());
-        getCommand("Day").setExecutor(new Day());
-        getCommand("Night").setExecutor(new Night());
-        getCommand("Midnight").setExecutor(new Midnight());
-        getCommand("Noon").setExecutor(new Noon());
-        getCommand("Sunrise").setExecutor(new Sunrise());
-        getCommand("Sunset").setExecutor(new Sunset());
+        Objects.requireNonNull(getCommand("Gm")).setExecutor(new GameMode());
+        Objects.requireNonNull(getCommand("Tp")).setExecutor(new Teleport());
+        Objects.requireNonNull(getCommand("TpHere")).setExecutor(new TpHere());
+        Objects.requireNonNull(getCommand("TpHereAll")).setExecutor(new TpHereAll());
+        Objects.requireNonNull(getCommand("Heal")).setExecutor(new Heal());
+        Objects.requireNonNull(getCommand("HealAll")).setExecutor(new HealAll());
+        Objects.requireNonNull(getCommand("EC")).setExecutor(new EnderChest());
+        Objects.requireNonNull(getCommand("Fly")).setExecutor(new Fly());
+        Objects.requireNonNull(getCommand("FlySpeed")).setExecutor(new FlySpeed());
+        Objects.requireNonNull(getCommand("BlockBreakSwitch")).setExecutor(new BlockBreakSwitch());
+        Objects.requireNonNull(getCommand("AdminGui")).setExecutor(new AdminGui());
+        Objects.requireNonNull(getCommand("AdminCms")).setExecutor(new AdminComs());
+        Objects.requireNonNull(getCommand("Day")).setExecutor(new Day());
+        Objects.requireNonNull(getCommand("Night")).setExecutor(new Night());
+        Objects.requireNonNull(getCommand("Midnight")).setExecutor(new Midnight());
+        Objects.requireNonNull(getCommand("Noon")).setExecutor(new Noon());
+        Objects.requireNonNull(getCommand("Sunrise")).setExecutor(new Sunrise());
+        Objects.requireNonNull(getCommand("Sunset")).setExecutor(new Sunset());
 
 
         // Register events
@@ -78,3 +80,4 @@ public final class Basics extends JavaPlugin {
         // Plugin shutdown logic
     }
 }
+
