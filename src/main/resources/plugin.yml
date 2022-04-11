@@ -23,7 +23,7 @@ commands:
     aliases:
       - tphere
       - teleporthere
-    description: teleport a playerto your location
+    description: teleport a player to your location
     permission: basics.tphere
 
   TpHereAll:
