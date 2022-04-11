@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.miscellaneous;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,7 +12,7 @@ public class EnderChest implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§cYou must be a player to use this command!");
+            sender.sendMessage(Languages.ConsoleExecute);
             return true;
         }
         if (sender.hasPermission("basics.enderchest")) {
@@ -20,7 +21,7 @@ public class EnderChest implements CommandExecutor {
             executor.openInventory(executor.getEnderChest());
 
         } else {
-            sender.sendMessage("§cYou don't have the permission to use this command!");
+            sender.sendMessage(Languages.NoPermission);
         }
 
         return false;

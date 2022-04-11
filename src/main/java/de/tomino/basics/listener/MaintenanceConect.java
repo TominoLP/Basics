@@ -12,10 +12,10 @@ public class MaintenanceConect implements Listener {
         if (AdminGuiClick.maintenance) {
 
             if (!(event.getPlayer().hasPermission("basics.maintenance") || event.getPlayer().hasPermission("basics.admin"))) {
-                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§cDas Spiel ist im Wartungsmodus. Bitte versuche es später erneut.");
+                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§Game is currently in maintenance mode.");
             } else {
                 event.allow();
-                event.getPlayer().sendMessage("§aDer Server ist zur Zeit in Wartung.");
+                event.getPlayer().sendMessage("§aServer is currently under maintenance.");
             }
 
         } else {

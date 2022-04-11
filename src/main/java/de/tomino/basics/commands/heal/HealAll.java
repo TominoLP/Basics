@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.heal;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,10 +17,10 @@ public class HealAll implements CommandExecutor {
 
                 players.setHealth(20);
                 players.setFoodLevel(20);
-                players.sendMessage("§aDu wurdest geheilt!");
+                players.sendMessage(Languages.HealAll);
             }
         } else {
-            sender.sendMessage("§cDu hast keine Berechtigung!\n§cDu musst §ebasics.heal.all §chaben");
+            sender.sendMessage(Languages.NoPermission);
         }
 
         return false;

@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.time;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,7 +14,7 @@ public class Day implements CommandExecutor {
         Player executor = (Player) sender;
 
         for (Player p : Bukkit.getOnlinePlayers()) {
-            p.sendMessage("accelerating threw the night");
+            p.sendMessage(Languages.TimeSkip);
 
         }
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("Basics"), new Runnable() {
@@ -28,11 +29,6 @@ public class Day implements CommandExecutor {
                 }
             }
         }, 0L, 1L);
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            player.sendMessage("Sunrise...");
-
-        }
-
 
         return false;
     }

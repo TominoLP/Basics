@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.miscellaneous;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,14 +13,14 @@ public class BlockBreakSwitch implements CommandExecutor {
         if (sender.hasPermission("basics.blockbreak.change")) {
 
             if (BBActive) {
-                sender.sendMessage("§aBlockBreak aktiviert");
+                sender.sendMessage(Languages.BlockBreakActivated);
                 BBActive = false;
             } else {
-                sender.sendMessage("§cBlockBreak deaktiviert");
+                sender.sendMessage(Languages.BlockBreakDeactivated);
                 BBActive = true;
             }
         } else {
-            sender.sendMessage("§cDu hast keine Berechtigung");
+            sender.sendMessage(Languages.NoPermission);
         }
 
         return false;

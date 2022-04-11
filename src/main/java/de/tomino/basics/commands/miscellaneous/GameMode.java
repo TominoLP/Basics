@@ -1,10 +1,12 @@
 package de.tomino.basics.commands.miscellaneous;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 
 public class GameMode implements CommandExecutor {
     @Override
@@ -29,24 +31,24 @@ public class GameMode implements CommandExecutor {
                     // Set gamemode to survival
                     if (args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival") || args[0].equalsIgnoreCase("s")) {
                         player.setGameMode(org.bukkit.GameMode.SURVIVAL);
-                        player.sendMessage("§aYou are now in survival mode!");
+                        player.sendMessage(Languages.GameModeSurvival);
 
                         // Set gamemode to creative
                     } else if (args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("c")) {
                         player.setGameMode(org.bukkit.GameMode.CREATIVE);
-                        player.sendMessage("§aYou are now in creative mode!");
+                        player.sendMessage(Languages.GameModeCreative);
 
                         // Set gamemode to adventure
                     } else if (args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("a")) {
                         player.setGameMode(org.bukkit.GameMode.ADVENTURE);
-                        player.sendMessage("§aYou are now in adventure mode!");
+                        player.sendMessage(Languages.GameModeAdventure);
 
                         // Set gamemode to spectator
                     } else if (args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator") || args[0].equalsIgnoreCase("sp")) {
                         player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-                        player.sendMessage("§aYou are now in spectator mode!");
+                        player.sendMessage(Languages.GameModeSpectator);
                     } else {
-                        player.sendMessage("§cInvalid gamemode!\n Use /gm [gamemode]");
+                        player.sendMessage(Languages.InvalidGameMode);
                     }
                 }
             }
@@ -68,10 +70,10 @@ public class GameMode implements CommandExecutor {
                             target.setGameMode(org.bukkit.GameMode.SURVIVAL);
 
                             if (target.getName().equals(sender.getName())) {
-                                player.sendMessage("§aYou are now in survival mode!");
+                                player.sendMessage(Languages.GameModeSurvival);
                             } else {
-                                target.sendMessage("§aYou are now in survival mode!");
-                                sender.sendMessage("§aYou set " + target.getName() + " to survival mode!");
+                                target.sendMessage(Languages.GameModeSurvival);
+                                sender.sendMessage(Languages.GameModeSurvival_Others.replace("%player%", target.getName()));
                             }
 
                             //set target gamemode to creative
@@ -79,10 +81,10 @@ public class GameMode implements CommandExecutor {
                             target.setGameMode(org.bukkit.GameMode.CREATIVE);
 
                             if (target.getName().equals(sender.getName())) {
-                                player.sendMessage("§aYou are now in creative mode!");
+                                player.sendMessage(Languages.GameModeCreative);
                             } else {
-                                target.sendMessage("§aYou are now in creative mode!");
-                                sender.sendMessage("§aYou set " + target.getName() + " to creative mode!");
+                                target.sendMessage(Languages.GameModeCreative);
+                                sender.sendMessage(Languages.GameModeCreative_Others.replace("%player%", target.getName()));
                             }
 
                             //set target gamemode to adventure
@@ -90,10 +92,10 @@ public class GameMode implements CommandExecutor {
                             target.setGameMode(org.bukkit.GameMode.ADVENTURE);
 
                             if (target.getName().equals(sender.getName())) {
-                                player.sendMessage("§aYou are now in adventure mode!");
+                                player.sendMessage(Languages.GameModeAdventure);
                             } else {
-                                target.sendMessage("§aYou are now in adventure mode!");
-                                sender.sendMessage("§aYou set " + target.getName() + " to adventure mode!");
+                                target.sendMessage(Languages.GameModeAdventure);
+                                sender.sendMessage(Languages.GameModeAdventure_Others.replace("%player%", target.getName()));
                             }
 
                             //set target gamemode to spectator
@@ -101,28 +103,28 @@ public class GameMode implements CommandExecutor {
                             target.setGameMode(org.bukkit.GameMode.SPECTATOR);
 
                             if (target.getName().equals(sender.getName())) {
-                                player.sendMessage("§aYou are now in spectator mode!");
+                                player.sendMessage(Languages.GameModeSpectator);
                             } else {
-                                target.sendMessage("§aYou are now in spectator mode!");
-                                sender.sendMessage("§aYou set " + target.getName() + " to spectator mode!");
+                                target.sendMessage(Languages.GameModeSpectator);
+                                sender.sendMessage(Languages.GameModeSpectator_Others.replace("%player%", target.getName()));
                             }
                         } else {
-                            sender.sendMessage("§cInvalid gamemode!\n Use /gm [player] [gamemode]");
+                            sender.sendMessage(Languages.InvalidGameMode);
                         }
 
 
                     } else {
-                        sender.sendMessage("§cPlayer not found!");
+                        sender.sendMessage(Languages.PlayerNotFound.replace("%player%", pName));
                     }
 
 
                 } else {
-                    player.sendMessage("§cYou don't have permission to use this command! \n§cYou need the permission: basics.gamemode.others");
+                    player.sendMessage(Languages.NoPermission);
                 }
             }
 
         } else {
-            player.sendMessage("§cYou don't have the permission to execute this command!");
+            player.sendMessage(Languages.NoPermission);
         }
         return false;
     }

@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.heal;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -28,14 +29,14 @@ public class Heal implements CommandExecutor {
 
                 } else {
 
-                    sender.sendMessage("§cPlayer " + args[0] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[0]));
                     return true;
                 }
 
             }
 
         } else {
-            sender.sendMessage("§cYou don't have the permission to use this command! \n§cYou need the permission: basics.heal");
+            sender.sendMessage(Languages.NoPermission);
         }
 
         return false;

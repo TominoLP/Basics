@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.movment.teleport;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,9 +18,9 @@ public class TpHereAll implements CommandExecutor {
 
                 Player executer = Bukkit.getPlayer(sender.getName());
                 players.teleport(executer.getLocation());
-                players.sendMessage("§aDu wurdest zu §e" + executer.getName() + "Teleportiert.");
+                players.sendMessage(Languages.TeleportSelf.replace("%executor%", executer.getName()));
             }
-            sender.sendMessage("§aDu hast alle Spieler zu dir teleportiert.");
+            sender.sendMessage(Languages.TeleportAll);
 
         }
         return false;

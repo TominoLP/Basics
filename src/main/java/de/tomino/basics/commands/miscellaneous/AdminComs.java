@@ -1,6 +1,7 @@
 package de.tomino.basics.commands.miscellaneous;
 
 import de.tomino.basics.listener.AdminGuiClick;
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +22,7 @@ public class AdminComs implements CommandExecutor {
                 sender.getServer().reload();
 
             } else if (args[0].equalsIgnoreCase("stop")) {
-                Bukkit.broadcastMessage("§cServer wird in 3m gestoppt!");
+                Bukkit.broadcastMessage(Languages.AdminStop);
                 Bukkit.getScheduler().runTaskLater((Bukkit.getPluginManager().getPlugin("Basics")), new Runnable() {
 
                     @Override
@@ -30,18 +31,18 @@ public class AdminComs implements CommandExecutor {
                     }
                 }, 20 * 60 * 3);
 
-            } else if (args[0].equalsIgnoreCase("maintence")) {
+            } else if (args[0].equalsIgnoreCase("maintence") || args[0].equalsIgnoreCase("Wartung")) {
                 if (AdminGuiClick.maintenance) {
 
                     AdminGuiClick.maintenance = false;
-                    sender.sendMessage("§aMaintenance wurde deaktiviert!");
+                    sender.sendMessage(Languages.AdminMaintenanceOFF);
 
                 } else {
                     AdminGuiClick.maintenance = true;
-                    sender.sendMessage("§aMaintenance wurde aktiviert!");
+                    sender.sendMessage(Languages.AdminMaintenanceON);
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         if (!(p.hasPermission("basics.admin") || p.hasPermission("basics.*"))) {
-                            p.kickPlayer("§cServer wird wegen Wartungsarbeiten heruntergefahren!");
+                            p.kickPlayer(Languages.MaintenanceKickMessage);
 
                         }
                     }

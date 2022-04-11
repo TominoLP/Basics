@@ -1,5 +1,6 @@
 package de.tomino.basics.listener;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,13 +16,13 @@ public class AdminGuiClick implements Listener {
 
         Player player = (Player) event.getWhoClicked();
 
-        if (event.getView().getTitle().equalsIgnoreCase("Admin Gui")) {
+        if (event.getView().getTitle().equalsIgnoreCase(Languages.AdminGUITitle)) {
             event.setCancelled(true);
             if (event.getCurrentItem().getItemMeta().getDisplayName().equals(" ")) {
                 return;
 
-            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§cStop Server")) {
-                Bukkit.broadcastMessage("§cServer wird in 3m gestoppt!");
+            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equals(Languages.AdminStopGUI)) {
+                Bukkit.broadcastMessage(Languages.AdminStop);
                 Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("Basics"), new Runnable() {
                     @Override
                     public void run() {
@@ -29,24 +30,24 @@ public class AdminGuiClick implements Listener {
                     }
                 }, 20 * 60 * 3);
 
-            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§cReload Server")) {
-                Bukkit.broadcastMessage("§Reloding...");
+            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equals(Languages.AdminReloadGUI)) {
+                Bukkit.broadcastMessage("§c§lReloading...");
                 Bukkit.reload();
 
-            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§cMaintenance")) {
-                Bukkit.broadcastMessage("§cServer wird in in Wartung geschaltet!");
+            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equals(Languages.AdminMaintenanceGUI)) {
+                Bukkit.broadcastMessage(Languages.MaintenanceKickMessage);
 
                 if (maintenance) {
                     maintenance = false;
-                    player.sendMessage("§aMaintenance wurde deaktiviert!");
+                    player.sendMessage(Languages.AdminMaintenanceOFF);
 
                 } else {
                     maintenance = true;
-                    player.sendMessage("§aMaintenance wurde aktiviert!");
+                    player.sendMessage(Languages.AdminMaintenanceON);
                 }
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     if (!(p.hasPermission("basics.admin") || p.hasPermission("basics.*"))) {
-                        p.kickPlayer("§cServer wird wegen Wartungsarbeiten heruntergefahren!");
+                        p.kickPlayer(Languages.MaintenanceKickMessage);
 
                     }
                 }

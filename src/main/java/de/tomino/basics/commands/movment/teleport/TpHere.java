@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.movment.teleport;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,6 +12,11 @@ public class TpHere implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+        if (sender instanceof Player) {
+            sender.sendMessage(Languages.ConsoleExecute);
+            return true;
+        }
+
         if (args.length == 1) {
             if (sender.hasPermission("basics.tphere") || sender.hasPermission("basics.*")) {
                 Player executor = Bukkit.getPlayer(sender.getName());
@@ -18,12 +24,12 @@ public class TpHere implements CommandExecutor {
 
                 if (target != null) {
                     target.teleport(executor);
-                    sender.sendMessage("§aDu hast " + target.getName() + " zu dir teleportiert.");
+                    sender.sendMessage(Languages.TeleportOtherToSelf.replace("%target%", target.getName()));
                 } else {
-                    sender.sendMessage("§cPlayer " + args[0] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound);
                 }
             } else {
-                sender.sendMessage("§cYou don't have the permission to use this command! \n§cYou need the permission basics.tphere or basics.*");
+                sender.sendMessage(Languages.NoPermission);
             }
         }
         return false;

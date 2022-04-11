@@ -12,6 +12,7 @@ import de.tomino.basics.commands.time.*;
 import de.tomino.basics.listener.AdminGuiClick;
 import de.tomino.basics.listener.BlockBreak;
 import de.tomino.basics.listener.MaintenanceConect;
+import de.tomino.basics.utils.Config;
 import de.tomino.basics.utils.DiscordWebHook;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -27,8 +28,9 @@ public final class Basics extends JavaPlugin {
     // Plugin startup logic
     @Override
     public void onEnable() {
-        instance = this;
 
+        instance = this;
+        Config.load();
 
         // Register commands
         getCommand("Gm").setExecutor(new GameMode());

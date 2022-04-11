@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.movment.teleport;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -15,7 +16,7 @@ public class Teleport implements CommandExecutor {
         if (args.length == 1) {
 
             if (!(sender instanceof Player)) {
-                System.out.println("[Teleport] You must be a player to use this command!");
+                System.out.println(Languages.ConsoleExecute);
                 return true;
             }
 
@@ -29,10 +30,10 @@ public class Teleport implements CommandExecutor {
                 try {
                     target = Bukkit.getPlayer(pName);
                 } catch (Exception e) {
-                    sender.sendMessage("§cPlayer " + args[0] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[0]));
                 }
                 if (target == null) {
-                    sender.sendMessage("§cPlayer " + args[0] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[0]));
                     return true;
                 }
 
@@ -50,10 +51,10 @@ public class Teleport implements CommandExecutor {
                 senderL.setYaw(targetL.getYaw());
 
                 // teleport sender to target
-                sender.sendMessage("§aDu wurdest zu §e" + target.getName() + " §ateleportiert.");
+                sender.sendMessage(Languages.TeleportSelf.replace("%target%", target.getName()));
 
             } else {
-                sender.sendMessage("§cYou don't have the permission to use this command!\n §cYou need the permission: basics.teleport");
+                sender.sendMessage(Languages.NoPermission);
             }
 
 
@@ -73,23 +74,23 @@ public class Teleport implements CommandExecutor {
                 try {
                     fromP = Bukkit.getPlayer(pName);
                 } catch (Exception e) {
-                    sender.sendMessage("§cPlayer " + args[0] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[0]));
                 }
 
                 try {
                     toP = Bukkit.getPlayer(pName2);
                 } catch (Exception e) {
-                    sender.sendMessage("§cPlayer " + args[1] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[1]));
                 }
 
                 // check if both players are online and not null
                 if (fromP == null) {
-                    sender.sendMessage("§cPlayer " + args[0] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[0]));
                     return true;
                 }
 
                 if (toP == null) {
-                    sender.sendMessage("§cPlayer " + args[1] + " not found!");
+                    sender.sendMessage(Languages.PlayerNotFound.replace("%player%", args[1]));
                     return true;
                 }
 
@@ -108,15 +109,15 @@ public class Teleport implements CommandExecutor {
 
                 // send message to executor and fromP
                 if (toP == executor.getPlayer()) {
-                    fromP.sendMessage("§aDu wurdest zu §e" + fromP.getName() + " §ateleportiert.");
+                    fromP.sendMessage(Languages.TeleportSelf.replace("%target%", toP.getName()));
 
                 } else {
-                    fromP.sendMessage("§aDu wurdest zu §e" + toP.getName() + " §ateleportiert.");
-                    executor.sendMessage("§aDu wurdest von §e" + fromP.getName() + " §ateleportiert.");
+                    fromP.sendMessage(Languages.TeleportOther.replace("%target%", toP.getName()).replace("%executor%", executor.getName()));
+                    executor.sendMessage(Languages.TeleportSelf.replace("%target%", toP.getName()));
                 }
 
             } else {
-                sender.sendMessage("§cYou don't have the permission to use this command!\n §cYou need the permission: basics.teleport.others");
+                sender.sendMessage(Languages.NoPermission);
             }
         }
         return false;

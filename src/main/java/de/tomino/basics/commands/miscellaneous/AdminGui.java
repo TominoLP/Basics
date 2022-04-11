@@ -1,5 +1,6 @@
 package de.tomino.basics.commands.miscellaneous;
 
+import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -17,7 +18,7 @@ public class AdminGui implements CommandExecutor {
 
         if (sender instanceof Player) {
             if (sender.hasPermission("basics.admin")) {
-                Inventory inv = Bukkit.createInventory(null, 3 * 9, "Admin Gui");
+                Inventory inv = Bukkit.createInventory(null, 3 * 9, Languages.AdminGUITitle);
 
                 ItemStack BG = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
                 ItemMeta BGmeta = BG.getItemMeta();
@@ -26,17 +27,17 @@ public class AdminGui implements CommandExecutor {
 
                 ItemStack stop = new ItemStack(Material.BARRIER);
                 ItemMeta stopmeta = stop.getItemMeta();
-                stopmeta.setDisplayName("§cStop Server");
+                stopmeta.setDisplayName(Languages.AdminStopGUI);
                 stop.setItemMeta(stopmeta);
 
                 ItemStack reload = new ItemStack(Material.COMPASS);
                 ItemMeta reloadmeta = reload.getItemMeta();
-                reloadmeta.setDisplayName("§cReload Server");
+                reloadmeta.setDisplayName(Languages.AdminReloadGUI);
                 reload.setItemMeta(reloadmeta);
 
                 ItemStack maintenance = new ItemStack(Material.TOTEM_OF_UNDYING);
                 ItemMeta maintenancemeta = maintenance.getItemMeta();
-                maintenancemeta.setDisplayName("§cMaintenance");
+                maintenancemeta.setDisplayName(Languages.AdminMaintenanceGUI);
                 maintenance.setItemMeta(maintenancemeta);
 
                 inv.setItem(0, BG);
