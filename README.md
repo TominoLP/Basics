@@ -115,8 +115,43 @@ usage:
 - ```/midnight``` sets the Time to Midnight
 
 ---
+---
 
-more functions are coming soon...
+<h2>Config:</h2>
+
+<img src="https://cdn.discordapp.com/attachments/717414262741532705/963131681286520952/unknown.png">
+
+in the Config you can find all the Settings for the Plugin
+
+---
+
+<h3>Webhook</h3>
+you can set your Discord Webhooks in the Config to log the Server events in your Discord Server \
+you just need to create a Webhook in your Discord Server and give the URL to the Config \
+and the Bot will send the Server Events to your Discord Server 
+leave it empty if you don't want to use a Webhook
+
+---
+
+<h3>Prefix</h3>
+
+the Prefix is the appears before each Command in the Chat
+
+<img src="https://cdn.discordapp.com/attachments/717414262741532705/963136648646909962/unknown.png">
+
+---
+
+<h3>Language</h3>
+
+Here you can set the Language of the Plugin
+currently supported Languages are:
+- English (en)
+- German (de)
+- French (fr)
+- Spanish (es)
+- Italian (it)
+
+---
 
 
 

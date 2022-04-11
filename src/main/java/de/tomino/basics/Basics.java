@@ -47,7 +47,7 @@ public final class Basics extends JavaPlugin {
         Objects.requireNonNull(getCommand("FlySpeed")).setExecutor(new FlySpeed());
         Objects.requireNonNull(getCommand("BlockBreakSwitch")).setExecutor(new BlockBreakSwitch());
         Objects.requireNonNull(getCommand("AdminGui")).setExecutor(new AdminGui());
-        Objects.requireNonNull(getCommand("AdminCms")).setExecutor(new AdminComs());
+        Objects.requireNonNull(getCommand("AdminCms")).setExecutor(new AdminCms());
         Objects.requireNonNull(getCommand("Day")).setExecutor(new Day());
         Objects.requireNonNull(getCommand("Night")).setExecutor(new Night());
         Objects.requireNonNull(getCommand("Midnight")).setExecutor(new Midnight());

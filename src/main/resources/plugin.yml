@@ -80,7 +80,7 @@ commands:
     description: open the admin gui
     permission: basics.admin
 
-  AdminComs:
+  AdminCms:
     aliases:
       - admincoms
       - ac
