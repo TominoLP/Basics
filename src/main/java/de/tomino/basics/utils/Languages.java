@@ -95,7 +95,7 @@ public class Languages {
             TeleportAll = "§aYou teleported all players to you!";
 
             // TimeSkip Command
-            TimeSkip = "§aAccelerating...r";
+            TimeSkip = "§aAccelerating...";
 
         } else if (Config.LANGUAGE.equals("de")) {
 

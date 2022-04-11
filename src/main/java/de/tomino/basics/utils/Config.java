@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 public class Config {
 
@@ -21,7 +22,7 @@ public class Config {
         CFG.addDefault("webhook", "https://discordapp.com/api/webhooks/");
         CFG.options().copyDefaults(true);
         LANGUAGE = CFG.getString("language").toLowerCase();
-        WEBHOOK = CFG.getString("webhook").toLowerCase();
+        WEBHOOK = CFG.getString("webhook");
         PREFIX = CFG.getString("prefix");
         Languages.setLanguage(LANGUAGE);
 

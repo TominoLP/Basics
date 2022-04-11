@@ -1,11 +1,14 @@
 package de.tomino.basics.commands.miscellaneous;
 
+import de.tomino.basics.utils.DiscordWebHook;
 import de.tomino.basics.utils.Languages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import static de.tomino.basics.utils.DiscordWebHook.sendtoDC;
 
 
 public class GameMode implements CommandExecutor {

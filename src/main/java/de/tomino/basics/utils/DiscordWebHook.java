@@ -1,7 +1,6 @@
 package de.tomino.basics.utils;
 
 import org.json.simple.JSONObject;
-
 import javax.net.ssl.HttpsURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,6 +12,7 @@ public class DiscordWebHook {
     static {
         try {
             url = new URL(Config.WEBHOOK);
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

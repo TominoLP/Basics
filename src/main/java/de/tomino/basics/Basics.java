@@ -11,6 +11,7 @@ import de.tomino.basics.commands.movment.teleport.TpHereAll;
 import de.tomino.basics.commands.time.*;
 import de.tomino.basics.listener.AdminGuiClick;
 import de.tomino.basics.listener.BlockBreak;
+import de.tomino.basics.listener.ChatLogger;
 import de.tomino.basics.listener.MaintenanceConect;
 import de.tomino.basics.utils.Config;
 import de.tomino.basics.utils.DiscordWebHook;
@@ -57,6 +58,7 @@ public final class Basics extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new BlockBreak(), this);
         Bukkit.getPluginManager().registerEvents(new AdminGuiClick(), this);
         Bukkit.getPluginManager().registerEvents(new MaintenanceConect(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatLogger(), this);
 
 
         System.out.println(
