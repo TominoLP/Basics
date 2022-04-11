@@ -1,8 +1,5 @@
 package de.tomino.basics.utils;
 
-
-// https://discord.com/api/webhooks/963043460443680839/2z5Tsb6YbHCnm2S3QUKvbvH0atpukWKuaWz_P5lCQLIPxFQu--8OGLRUgJSnslXvMKQ4
-
 import org.json.simple.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -15,16 +12,23 @@ public class DiscordWebHook {
 
     static {
         try {
-            url = new URL("https://discord.com/api/webhooks/963043460443680839/2z5Tsb6YbHCnm2S3QUKvbvH0atpukWKuaWz_P5lCQLIPxFQu--8OGLRUgJSnslXvMKQ4");
+            url = new URL(Config.WEBHOOK);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
 
+
     public static void sendtoDC(String message) {
+
+        if (Config.WEBHOOK.equals("https://discordapp.com/api/webhooks/") || Config.WEBHOOK.equals("")) {
+            return;
+        }
 
         JSONObject json = new JSONObject();
         json.put("content", message);
+
+
         try {
 
             HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
