@@ -100,5 +100,29 @@ commands:
     description: set the time to night
     permission: basics.time
 
+  Midnight:
+    aliases:
+      - midnight
+    description: set the time to midnight
+    permission: basics.time
+
+  Noon:
+    aliases:
+      - noon
+    description: set the time to noon
+    permission: basics.time
+
+  Sunrise:
+    aliases:
+      - sunrise
+    description: set the time to sunrise
+    permission: basics.time
+
+  Sunset:
+    aliases:
+      - sunset
+    description: set the time to sunset
+    permission: basics.time
+
 
 

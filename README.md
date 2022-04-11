@@ -1,8 +1,7 @@
-
 <h1>Basics</h1>
 
 
- 
+
 a Simple LightWeight Minecraft Plugin \
 just for the Basics
 
@@ -12,7 +11,7 @@ just for the Basics
 
 <h3>Help</h3>
 
-```/help``` 
+```/help```
 
 gives you a list of all commands
 
@@ -20,11 +19,12 @@ gives you a list of all commands
 
 <h3>GameMode</h3>
 
-```/gm <PlayerName> <GameMode>``` 
+```/gm <PlayerName> <GameMode>```
 
-changes the GameMode of a Player 
+changes the GameMode of a Player
 
 usage:
+
 - ```/gm <PlayerName> survival | s | 0```
 - ```/gm <PlayerName> creative | c | 1```
 - ```/gm <PlayerName> adventure | a | 2```
@@ -42,7 +42,7 @@ usage:
 \
 teleports a Player to another Player
 
-usage: 
+usage:
 
 - ```/tp <PlayerName>``` teleports you to a Player
 - ```/tp <PlayerName> <PlayerName>``` teleports a Player to another Player
@@ -55,9 +55,10 @@ usage:
 
 ```/heal <PlayerName>``` \
 \
-set a Players Health and Hunger to 20 
+set a Players Health and Hunger to 20
 
-usage: 
+usage:
+
 - ```/heal``` heals you
 - ```/heal <PlayerName>``` heals a Player
 - ```/healall``` heals all Players
@@ -68,9 +69,10 @@ usage:
 
 Lets enable or disable the Flymode for a Player
 
-```/fly <PlayerName>``` 
+```/fly <PlayerName>```
 
 usage:
+
 - ```/fly``` toggles your FlyMode
 - ```/fly <PlayerName>``` toggles a Players FlyMode
 - ```/flyspeed <Speed>``` sets your FlySpeed
@@ -80,18 +82,17 @@ usage:
 
 <h3>AdminCommands</h3>
 
-```/admin <Command>``` 
-
+```/admin <Command>```
 
 usage:
+
 - ````/admin stop```` stops the Server after 3min delay
 - ````/admin reload```` reloads the Server
 - ````/admin maintenance```` toggles the Server in Maintenance Mode
-- ````/bbs```` toggles BlockBraking serverwide 
+- ````/bbs```` toggles BlockBraking serverwide
 
 
-
-- ````/admingui```` opens the AdminGui 
+- ````/admingui```` opens the AdminGui
 
 ![](https://cdn.discordapp.com/attachments/717414262741532705/962852970842718218/unknown.png)
 
@@ -99,12 +100,13 @@ usage:
 
 <h3>Time</h3>
 
-```/<Time>``` 
+```/<Time>```
 
 allow you to set the Time of the Server\
 with a smooth animation
 
 usage:
+
 - ```/day``` sets the Time to Day
 - ```/night``` sets the Time to Night
 - ```/sunset``` sets the Time to Sunset

@@ -1,7 +1,6 @@
 package de.tomino.basics.utils;
 
 
-
 // https://discord.com/api/webhooks/963043460443680839/2z5Tsb6YbHCnm2S3QUKvbvH0atpukWKuaWz_P5lCQLIPxFQu--8OGLRUgJSnslXvMKQ4
 
 import org.json.simple.JSONObject;
@@ -9,7 +8,6 @@ import org.json.simple.JSONObject;
 import javax.net.ssl.HttpsURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 public class DiscordWebHook {
 
