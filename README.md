@@ -126,8 +126,8 @@ in the Config you can find all the Settings for the Plugin
 ---
 
 <h3>Webhook</h3>
-you can set your Discord Webhooks in the Config to log the Server events in your Discord Server \
-you just need to create a Webhook in your Discord Server and give the URL to the Config \
+you can set your Discord Webhooks in the Config to log the Server events in your Discord Server
+you just need to create a Webhook in your Discord Server and give the URL to the Config
 and the Bot will send the Server Events to your Discord Server 
 leave it empty if you don't want to use a Webhook
 
