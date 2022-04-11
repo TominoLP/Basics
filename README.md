@@ -7,7 +7,7 @@ a Simple LightWeight Minecraft Plugin \
 just for the Basics
 
 <h2>Commands:</h2>
-
+<p1>Hey <p1/>
 ---
 
 <h3>Help</h3>
@@ -113,6 +113,8 @@ usage:
 - ```/midnight``` sets the Time to Midnight
 
 ---
+
+more functions are coming soon...
 
 
 
