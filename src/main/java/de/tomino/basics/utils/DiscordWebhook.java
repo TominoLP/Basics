@@ -1,16 +1,14 @@
 package de.tomino.basics.utils;
 
 import javax.net.ssl.HttpsURLConnection;
-import java.awt.Color;
+import java.awt.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class DiscordWebhook {
 
@@ -23,6 +21,74 @@ public class DiscordWebhook {
 
     public DiscordWebhook(String url) {
         this.url = url;
+    }
+
+    public static void send(String content) {
+
+        JSONObject json = new JSONObject();
+
+        json.put("content", content);
+
+
+        if (Config.WEBHOOK.equals("https://discordapp.com/api/webhooks/") || Config.WEBHOOK.equals("")) {
+            return;
+        }
+
+
+        try {
+            URL url = new URL(Config.WEBHOOK);
+            HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+            con.addRequestProperty("Content-Type", "application/json");
+            con.addRequestProperty("User-Agent", "Java-Discord-Webhook");
+            con.setDoOutput(true);
+            con.setRequestMethod("POST");
+            con.getOutputStream().write(json.toString().getBytes());
+            con.getOutputStream().flush();
+            con.getOutputStream().close();
+            con.getInputStream().close();
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void color() {
+        final Color RED = new Color(255, 0, 0);
+        Color BLUE = new Color(0, 0, 255);
+        Color GREEN = new Color(0, 255, 0);
+        Color YELLOW = new Color(255, 255, 0);
+        Color PURPLE = new Color(255, 0, 255);
+        Color WHITE = new Color(255, 255, 255);
+        Color BLACK = new Color(0, 0, 0);
+        Color ORANGE = new Color(255, 165, 0);
+        Color CYAN = new Color(0, 255, 255);
+        Color MAGENTA = new Color(255, 0, 255);
+        Color GRAY = new Color(128, 128, 128);
+        Color LIGHT_GRAY = new Color(211, 211, 211);
+        Color DARK_GRAY = new Color(169, 169, 169);
+        Color PINK = new Color(255, 192, 203);
+        Color BROWN = new Color(165, 42, 42);
+        Color LIME = new Color(50, 205, 50);
+        Color TURQUOISE = new Color(64, 224, 208);
+        Color DARK_GREEN = new Color(0, 100, 0);
+        Color DARK_BLUE = new Color(0, 0, 139);
+        Color DARK_RED = new Color(139, 0, 0);
+        Color DARK_YELLOW = new Color(255, 140, 0);
+        Color DARK_PURPLE = new Color(128, 0, 128);
+        Color DARK_CYAN = new Color(0, 139, 139);
+        Color DARK_MAGENTA = new Color(139, 0, 139);
+        Color DARK_ORANGE = new Color(255, 140, 0);
+        Color DARK_PINK = new Color(255, 20, 147);
+        Color DARK_BROWN = new Color(165, 42, 42);
+        Color DARK_LIME = new Color(50, 205, 50);
+        Color DARK_TURQUOISE = new Color(64, 224, 208);
+        Color DARK_GOLD = new Color(255, 215, 0);
+        Color DARK_GOLDENROD = new Color(184, 134, 11);
+        Color DARK_INDIGO = new Color(75, 0, 130);
+        Color DARK_ORCHID = new Color(153, 50, 204);
+
+
     }
 
     public void setContent(String content) {
@@ -146,38 +212,7 @@ public class DiscordWebhook {
         connection.getInputStream().close(); //I'm not sure why but it doesn't work without getting the InputStream
         connection.disconnect();
     }
-    public static void send(String content) {
 
-        JSONObject json = new JSONObject();
-
-        json.put("content", content);
-
-
-        if (Config.WEBHOOK.equals("https://discordapp.com/api/webhooks/") || Config.WEBHOOK.equals("")) {
-            return;
-        }
-
-
-
-
-
-        try {
-            URL url = new URL(Config.WEBHOOK);
-            HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
-            con.addRequestProperty("Content-Type", "application/json");
-            con.addRequestProperty("User-Agent", "Java-Discord-Webhook");
-            con.setDoOutput(true);
-            con.setRequestMethod("POST");
-            con.getOutputStream().write(json.toString().getBytes());
-            con.getOutputStream().flush();
-            con.getOutputStream().close();
-            con.getInputStream().close();
-            con.disconnect();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     public void sendS(String content) throws IOException {
         this.sendS(content);
     }
@@ -198,16 +233,36 @@ public class DiscordWebhook {
             return title;
         }
 
+        public EmbedObject setTitle(String title) {
+            this.title = title;
+            return this;
+        }
+
         public String getDescription() {
             return description;
+        }
+
+        public EmbedObject setDescription(String description) {
+            this.description = description;
+            return this;
         }
 
         public String getUrl() {
             return url;
         }
 
+        public EmbedObject setUrl(String url) {
+            this.url = url;
+            return this;
+        }
+
         public Color getColor() {
             return color;
+        }
+
+        public EmbedObject setColor(Color color) {
+            this.color = color;
+            return this;
         }
 
         public Footer getFooter() {
@@ -218,8 +273,18 @@ public class DiscordWebhook {
             return thumbnail;
         }
 
+        public EmbedObject setThumbnail(String url) {
+            this.thumbnail = new Thumbnail(url);
+            return this;
+        }
+
         public Image getImage() {
             return image;
+        }
+
+        public EmbedObject setImage(String url) {
+            this.image = new Image(url);
+            return this;
         }
 
         public Author getAuthor() {
@@ -230,38 +295,8 @@ public class DiscordWebhook {
             return fields;
         }
 
-        public EmbedObject setTitle(String title) {
-            this.title = title;
-            return this;
-        }
-
-        public EmbedObject setDescription(String description) {
-            this.description = description;
-            return this;
-        }
-
-        public EmbedObject setUrl(String url) {
-            this.url = url;
-            return this;
-        }
-
-        public EmbedObject setColor(Color color) {
-            this.color = color;
-            return this;
-        }
-
         public EmbedObject setFooter(String text, String icon) {
             this.footer = new Footer(text, icon);
-            return this;
-        }
-
-        public EmbedObject setThumbnail(String url) {
-            this.thumbnail = new Thumbnail(url);
-            return this;
-        }
-
-        public EmbedObject setImage(String url) {
-            this.image = new Image(url);
             return this;
         }
 
@@ -276,11 +311,13 @@ public class DiscordWebhook {
         }
 
         private class Footer {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
             private String text;
             private String iconUrl;
 
+
             private Footer(String text, String iconUrl) {
-                this.text = text;
+                this.text = text.replace("%time%", dateFormat.format(new Date()));
                 this.iconUrl = iconUrl;
             }
 
@@ -414,5 +451,6 @@ public class DiscordWebhook {
             return "\"" + string + "\"";
         }
     }
+
 
 }

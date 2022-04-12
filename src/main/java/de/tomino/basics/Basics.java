@@ -14,20 +14,23 @@ import de.tomino.basics.listener.BlockBreak;
 import de.tomino.basics.listener.ChatLogger;
 import de.tomino.basics.listener.MaintenanceConect;
 import de.tomino.basics.utils.Config;
-import de.tomino.basics.utils.DiscordWebHook;
+import de.tomino.basics.utils.DiscordWebhook;
 import de.tomino.basics.utils.UpdaterAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+import static de.tomino.basics.utils.Config.WEBHOOK;
+
 public final class Basics extends JavaPlugin {
 
-    private static Basics instance;
     private static final String currentVersion = "0.0.0";
+    private static Basics instance;
 
     public static Basics getInstance() {
         return instance;
@@ -36,11 +39,23 @@ public final class Basics extends JavaPlugin {
     // Plugin startup logic
     @Override
     public void onEnable() {
+
         instance = getInstance();
         Config.load();
 
+
         UpdaterAPI.setAutoDelete(true);
         UpdaterAPI.downloadUpdater(new File("plugins/Basics/Updater.jar"));
+
+        UpdaterAPI.getLatestReleaseFromGithub("TominoLP", "Basics", new Consumer<String[]>() {
+            @Override
+            public void accept(String[] strings) {
+                if (UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
+                    /*DiscordWebHook.sendtoDC("New version of Basics available: " + strings[0] + " (Current Version: " +
+                            currentVersion + ")\n" + "It will be downloaded automatically in the next restart.");*/
+                }
+            }
+        });
 
         // Register commands
         Objects.requireNonNull(getCommand("Gm")).setExecutor(new GameMode());
@@ -78,22 +93,68 @@ public final class Basics extends JavaPlugin {
                         "╚█████╔╝╚█████╔╝███████╗██║  ██║██║ ╚███║██████╔╝██║     ██║██║  ██║███████╗\n" +
                         " ╚════╝  ╚════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚══╝╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝"
         );
-        DiscordWebHook.sendtoDC("Basics Plugin Started");
+
+        DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+        webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                .setColor(new Color(0, 130, 0))
+                .setTitle("Basics Plugin Started")
+                .setFooter("%time%", " ")
+
+        );
+        try {
+            webhook.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
     @Override
     public void onDisable() {
+
+        DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+        webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                .setColor(new Color(200, 0, 0))
+                .setTitle("Basics Plugin Stopped")
+                .setFooter("%time%", " ")
+
+        );
+        try {
+            webhook.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         UpdaterAPI.getLatestReleaseFromGithub("TominoLP", "Basics", new Consumer<String[]>() {
+
+
             @Override
             public void accept(String[] strings) {
                 File newFile = new File("plugins/Basics-" + strings[0] + ".jar");
-                if(strings[0].contains("pre")) return;
+                if (strings[0].contains("pre")) return;
 
-                if(UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
+                if (UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
                     System.out.println("[Basics] Outdated version found!");
                     try {
                         UpdaterAPI.update(strings[1], newFile);
+
+                        DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+                        webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                                .setColor(new Color(250, 130, 0))
+                                .setTitle("Basics Plugin Updated")
+                                .setDescription("Successfully updated to " + strings[0])
+                                .setFooter("%time%", " ")
+                        );
+                        try {
+                            webhook.execute();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
