@@ -17,7 +17,7 @@ public class DiscordWebhook {
     private String username;
     private String avatarUrl;
     private boolean tts;
-    private List<EmbedObject> embeds = new ArrayList<>();
+    private final List<EmbedObject> embeds = new ArrayList<>();
 
     public DiscordWebhook(String url) {
         this.url = url;
@@ -51,44 +51,6 @@ public class DiscordWebhook {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static void color() {
-        final Color RED = new Color(255, 0, 0);
-        Color BLUE = new Color(0, 0, 255);
-        Color GREEN = new Color(0, 255, 0);
-        Color YELLOW = new Color(255, 255, 0);
-        Color PURPLE = new Color(255, 0, 255);
-        Color WHITE = new Color(255, 255, 255);
-        Color BLACK = new Color(0, 0, 0);
-        Color ORANGE = new Color(255, 165, 0);
-        Color CYAN = new Color(0, 255, 255);
-        Color MAGENTA = new Color(255, 0, 255);
-        Color GRAY = new Color(128, 128, 128);
-        Color LIGHT_GRAY = new Color(211, 211, 211);
-        Color DARK_GRAY = new Color(169, 169, 169);
-        Color PINK = new Color(255, 192, 203);
-        Color BROWN = new Color(165, 42, 42);
-        Color LIME = new Color(50, 205, 50);
-        Color TURQUOISE = new Color(64, 224, 208);
-        Color DARK_GREEN = new Color(0, 100, 0);
-        Color DARK_BLUE = new Color(0, 0, 139);
-        Color DARK_RED = new Color(139, 0, 0);
-        Color DARK_YELLOW = new Color(255, 140, 0);
-        Color DARK_PURPLE = new Color(128, 0, 128);
-        Color DARK_CYAN = new Color(0, 139, 139);
-        Color DARK_MAGENTA = new Color(139, 0, 139);
-        Color DARK_ORANGE = new Color(255, 140, 0);
-        Color DARK_PINK = new Color(255, 20, 147);
-        Color DARK_BROWN = new Color(165, 42, 42);
-        Color DARK_LIME = new Color(50, 205, 50);
-        Color DARK_TURQUOISE = new Color(64, 224, 208);
-        Color DARK_GOLD = new Color(255, 215, 0);
-        Color DARK_GOLDENROD = new Color(184, 134, 11);
-        Color DARK_INDIGO = new Color(75, 0, 130);
-        Color DARK_ORCHID = new Color(153, 50, 204);
-
-
     }
 
     public void setContent(String content) {
@@ -227,7 +189,7 @@ public class DiscordWebhook {
         private Thumbnail thumbnail;
         private Image image;
         private Author author;
-        private List<Field> fields = new ArrayList<>();
+        private final List<Field> fields = new ArrayList<>();
 
         public String getTitle() {
             return title;
@@ -312,8 +274,8 @@ public class DiscordWebhook {
 
         private class Footer {
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-            private String text;
-            private String iconUrl;
+            private final String text;
+            private final String iconUrl;
 
 
             private Footer(String text, String iconUrl) {
@@ -331,7 +293,7 @@ public class DiscordWebhook {
         }
 
         private class Thumbnail {
-            private String url;
+            private final String url;
 
             private Thumbnail(String url) {
                 this.url = url;
@@ -343,7 +305,7 @@ public class DiscordWebhook {
         }
 
         private class Image {
-            private String url;
+            private final String url;
 
             private Image(String url) {
                 this.url = url;
@@ -355,9 +317,9 @@ public class DiscordWebhook {
         }
 
         private class Author {
-            private String name;
-            private String url;
-            private String iconUrl;
+            private final String name;
+            private final String url;
+            private final String iconUrl;
 
             private Author(String name, String url, String iconUrl) {
                 this.name = name;
@@ -379,9 +341,9 @@ public class DiscordWebhook {
         }
 
         private class Field {
-            private String name;
-            private String value;
-            private boolean inline;
+            private final String name;
+            private final String value;
+            private final boolean inline;
 
             private Field(String name, String value, boolean inline) {
                 this.name = name;
@@ -431,7 +393,7 @@ public class DiscordWebhook {
                 } else if (val instanceof Boolean) {
                     builder.append(val);
                 } else if (val instanceof JSONObject) {
-                    builder.append(val.toString());
+                    builder.append(val);
                 } else if (val.getClass().isArray()) {
                     builder.append("[");
                     int len = Array.getLength(val);

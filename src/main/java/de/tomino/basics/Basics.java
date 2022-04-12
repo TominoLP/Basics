@@ -16,6 +16,7 @@ import de.tomino.basics.listener.MaintenanceConect;
 import de.tomino.basics.utils.Config;
 import de.tomino.basics.utils.DiscordWebhook;
 import de.tomino.basics.utils.UpdaterAPI;
+import de.tomino.basics.utils.color;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -115,7 +116,7 @@ public final class Basics extends JavaPlugin {
 
         DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
         webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                .setColor(new Color(200, 0, 0))
+                .setColor(color.RED)
                 .setTitle("Basics Plugin Stopped")
                 .setFooter("%time%", " ")
 

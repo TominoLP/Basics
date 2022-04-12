@@ -1,0 +1,58 @@
+package de.tomino.basics.utils;
+
+import java.awt.*;
+
+public class color {
+    public static Color RED = new Color(255, 0, 0);
+    public static Color GREEN = new Color(0, 255, 0);
+    public static Color BLUE = new Color(0, 0, 255);
+    public static Color YELLOW = new Color(255, 255, 0);
+    public static Color ORANGE = new Color(255, 128, 0);
+    public static Color PURPLE = new Color(128, 0, 128);
+    public static Color WHITE = new Color(255, 255, 255);
+    public static Color BLACK = new Color(0, 0, 0);
+    public static Color GRAY = new Color(128, 128, 128);
+    public static Color LIGHT_GRAY = new Color(192, 192, 192);
+    public static Color DARK_GRAY = new Color(64, 64, 64);
+    public static Color PINK = new Color(255, 192, 203);
+    public static Color CYAN = new Color(0, 255, 255);
+    public static Color MAGENTA = new Color(255, 0, 255);
+    public static Color LIME = new Color(0, 255, 0);
+    public static Color NAVY = new Color(0, 0, 128);
+    public static Color TEAL = new Color(0, 128, 128);
+    public static Color OLIVE = new Color(128, 128, 0);
+    public static Color MAROON = new Color(128, 0, 0);
+    public static Color SILVER = new Color(192, 192, 192);
+    public static Color AQUA = new Color(0, 255, 255);
+    public static Color FUCHSIA = new Color(255, 0, 255);
+    public static Color LIGHT_PINK = new Color(255, 182, 193);
+    public static Color LIGHT_RED = new Color(255, 105, 97);
+    public static Color LIGHT_YELLOW = new Color(255, 255, 116);
+    public static Color LIGHT_ORANGE = new Color(255, 204, 102);
+    public static Color LIGHT_PURPLE = new Color(230, 143, 172);
+    public static Color LIGHT_NAVY = new Color(112, 128, 144);
+    public static Color LIGHT_TEAL = new Color(102, 205, 170);
+    public static Color LIGHT_OLIVE = new Color(238, 238, 130);
+    public static Color LIGHT_MAROON = new Color(179, 0, 0);
+    public static Color LIGHT_SILVER = new Color(211, 211, 211);
+    public static Color LIGHT_AQUA = new Color(127, 255, 212);
+    public static Color LIGHT_FUCHSIA = new Color(255, 138, 201);
+    public static Color LIGHT_BLUE = new Color(135, 206, 250);
+    public static Color LIGHT_GREEN = new Color(144, 238, 144);
+    public static Color DARK_BLUE = new Color(0, 0, 128);
+    public static Color DARK_GREEN = new Color(0, 128, 0);
+    public static Color DARK_RED = new Color(128, 0, 0);
+    public static Color DARK_ORANGE = new Color(255, 128, 0);
+    public static Color DARK_PURPLE = new Color(128, 0, 128);
+    public static Color DARK_YELLOW = new Color(255, 255, 0);
+    public static Color DARK_CYAN = new Color(0, 255, 255);
+    public static Color DARK_MAGENTA = new Color(255, 0, 255);
+    public static Color DARK_LIME = new Color(0, 255, 0);
+    public static Color DARK_NAVY = new Color(0, 0, 128);
+    public static Color DARK_TEAL = new Color(0, 128, 128);
+    public static Color DARK_OLIVE = new Color(128, 128, 0);
+    public static Color DARK_MAROON = new Color(128, 0, 0);
+    public static Color DARK_SILVER = new Color(192, 192, 192);
+    public static Color DARK_AQUA = new Color(0, 255, 255);
+    public static Color DARK_FUCHSIA = new Color(255, 0, 255);
+}
