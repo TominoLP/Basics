@@ -162,7 +162,7 @@ public class DiscordWebhook {
         URL url = new URL(this.url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.addRequestProperty("Content-Type", "application/json");
-        connection.addRequestProperty("User-Agent", "Java-DiscordWebhook-BY-Gelox_");
+        connection.addRequestProperty("User-Agent", "Java-Webhook");
         connection.setDoOutput(true);
         connection.setRequestMethod("POST");
 
@@ -171,7 +171,7 @@ public class DiscordWebhook {
         stream.flush();
         stream.close();
 
-        connection.getInputStream().close(); //I'm not sure why but it doesn't work without getting the InputStream
+        connection.getInputStream().close();
         connection.disconnect();
     }
 

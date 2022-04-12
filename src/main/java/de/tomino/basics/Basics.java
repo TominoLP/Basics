@@ -42,8 +42,9 @@ public final class Basics extends JavaPlugin {
     public void onEnable() {
 
         instance = getInstance();
-        Config.load();
 
+
+        Config.load();
 
         UpdaterAPI.setAutoDelete(true);
         UpdaterAPI.downloadUpdater(new File("plugins/Basics/Updater.jar"));
@@ -52,11 +53,74 @@ public final class Basics extends JavaPlugin {
             @Override
             public void accept(String[] strings) {
                 if (UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
-                    /*DiscordWebHook.sendtoDC("New version of Basics available: " + strings[0] + " (Current Version: " +
-                            currentVersion + ")\n" + "It will be downloaded automatically in the next restart.");*/
+                    DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+                    webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                            .setTitle("Basics Update")
+                            .setDescription("A new version of Basics is available!")
+                            .setColor(new Color(0, 255, 0))
+                            .addField("Current Version", currentVersion, true)
+                            .addField("New Version", strings[0].replace("v", " "), true)
+                            .addField("It will be downloaded in the next restart!", "", true)
+                            .setFooter("%time%", "")
+
+                    );
+                    try {
+                        webhook.execute();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
+
+
+
+
+        System.out.println(
+                "\n █████╗  █████╗ ███████╗ █████╗ ███╗  ██╗ ██████╗██████╗ ██╗██████╗ ███████╗\n" +
+                        "██╔══██╗██╔══██╗██╔════╝██╔══██╗████╗ ██║██╔════╝██╔══██╗██║██╔══██╗██╔════╝\n" +
+                        "██║  ██║██║  ╚═╝█████╗  ███████║██╔██╗██║╚█████╗ ██████╔╝██║██████╔╝█████╗\n" +
+                        "██║  ██║██║  ██╗██╔══╝  ██╔══██║██║╚████║ ╚═══██╗██╔═══╝ ██║██╔══██╗██╔══╝\n" +
+                        "╚█████╔╝╚█████╔╝███████╗██║  ██║██║ ╚███║██████╔╝██║     ██║██║  ██║███████╗\n" +
+                        " ╚════╝  ╚════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚══╝╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝"
+        );
+
+        System.out.println(Config.RELOAD + " test 1");
+        DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+        if (!(Config.RELOAD)) {
+            webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                    .setColor(new Color(0, 130, 0))
+                    .setTitle("Basics Plugin Started")
+                    .setFooter("%time%", " ")
+
+            );
+            try {
+                webhook.execute();
+                Config.CFG.set("restart", false);
+                Config.save();
+                System.out.println(Config.RELOAD + "test 2");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                    .setColor(new Color(255, 0, 0))
+                    .setTitle("Basics Plugin Restarted")
+                    .setFooter("%time%", " ")
+
+            );
+
+            try {
+                webhook.execute();
+                System.out.println(Config.RELOAD + "test 2b");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
 
         // Register commands
         Objects.requireNonNull(getCommand("Gm")).setExecutor(new GameMode());
@@ -85,34 +149,16 @@ public final class Basics extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new MaintenanceConect(), this);
         Bukkit.getPluginManager().registerEvents(new ChatLogger(), this);
 
-
-        System.out.println(
-                "\n █████╗  █████╗ ███████╗ █████╗ ███╗  ██╗ ██████╗██████╗ ██╗██████╗ ███████╗\n" +
-                        "██╔══██╗██╔══██╗██╔════╝██╔══██╗████╗ ██║██╔════╝██╔══██╗██║██╔══██╗██╔════╝\n" +
-                        "██║  ██║██║  ╚═╝█████╗  ███████║██╔██╗██║╚█████╗ ██████╔╝██║██████╔╝█████╗\n" +
-                        "██║  ██║██║  ██╗██╔══╝  ██╔══██║██║╚████║ ╚═══██╗██╔═══╝ ██║██╔══██╗██╔══╝\n" +
-                        "╚█████╔╝╚█████╔╝███████╗██║  ██║██║ ╚███║██████╔╝██║     ██║██║  ██║███████╗\n" +
-                        " ╚════╝  ╚════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚══╝╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝"
-        );
-
-        DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
-        webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                .setColor(new Color(0, 130, 0))
-                .setTitle("Basics Plugin Started")
-                .setFooter("%time%", " ")
-
-        );
-        try {
-            webhook.execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
     @Override
     public void onDisable() {
+
+        System.out.println(Config.RELOAD + "test 3");
+
+        if (Config.RELOAD) {
+            return;
+        }
 
         DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
         webhook.addEmbed(new DiscordWebhook.EmbedObject()
@@ -127,9 +173,7 @@ public final class Basics extends JavaPlugin {
             e.printStackTrace();
         }
 
-
         UpdaterAPI.getLatestReleaseFromGithub("TominoLP", "Basics", new Consumer<String[]>() {
-
 
             @Override
             public void accept(String[] strings) {
@@ -160,6 +204,8 @@ public final class Basics extends JavaPlugin {
                 }
             }
         });
+        Config.save();
+        System.out.println(Config.RELOAD + "test 4");
     }
 }
 

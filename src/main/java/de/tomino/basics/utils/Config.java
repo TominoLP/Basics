@@ -13,6 +13,7 @@ public class Config {
     public static String LANGUAGE;
     public static String WEBHOOK;
     public static String PREFIX;
+    public static boolean RELOAD;
 
     public static void load() {
 
@@ -20,11 +21,14 @@ public class Config {
         CFG.addDefault("prefix", "&8[&6Basics&8]");
         CFG.addDefault("language", "en");
         CFG.addDefault("webhook", "https://discordapp.com/api/webhooks/");
+        CFG.addDefault("restart", false);
         CFG.options().copyDefaults(true);
         LANGUAGE = Objects.requireNonNull(CFG.getString("language")).toLowerCase();
         WEBHOOK = CFG.getString("webhook");
         PREFIX = CFG.getString("prefix");
+        RELOAD = CFG.getBoolean("restart");
         Languages.setLanguage();
+        save();
 
         try {
             CFG.save(CFG_FILE);
@@ -35,5 +39,11 @@ public class Config {
 
     }
 
-
+    public static void save() {
+        try {
+            CFG.save(CFG_FILE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
