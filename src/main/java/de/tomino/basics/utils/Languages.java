@@ -172,6 +172,13 @@ public class Languages {
                 GameModeAdventure = "§aHas cambiado tu modo de juego a §eAdventure§a!";
                 GameModeSpectator = "§aHas cambiado tu modo de juego a §eSpectator§a!";
 
+                GameModeSurvival_Others = "§aHas cambiado el modo de juego de %Player% a §eSurvival§a!";
+                GameModeCreative_Others = "§aHas cambiado el modo de juego de %Player% a §eCreative§a!";
+                GameModeAdventure_Others = "§aHas cambiado el modo de juego de %Player% a §eAdventure§a!";
+                GameModeSpectator_Others = "§aHas cambiado el modo de juego de %Player% a §eSpectator§a!";
+
+                InvalidGameMode = "§cModo de juego inválido!\n Usa /gm [modo]";
+
                 // BlockBreak Commands
                 BlockBreakActivated = "§aAhora puedes romper bloques!";
                 BlockBreakDeactivated = "§aAhora no puedes romper bloques!";
@@ -182,6 +189,10 @@ public class Languages {
                 AdminReloadGUI = "§cRecargar Servidor";
                 AdminMaintenanceGUI = "§cMantenimiento";
 
+                AdminStop = "§cParar Servidor en 3m...";
+                AdminMaintenanceON = "§cMantenimiento activado!";
+                AdminMaintenanceOFF = "§cMantenimiento desactivado!";
+                MaintenanceKickMessage = "§cServidor en mantenimiento!";
                 // Heal Commands
                 HealAll = "§aHas sido curado!";
 
@@ -192,7 +203,6 @@ public class Languages {
                 FlySpeedNormal = "§aLa velocidad de vuelo ha sido restaurada a 1!";
                 FlySpeedInvalid = "§cVelocidad de vuelo inválida!";
                 FlySpeed = "§aLa velocidad de vuelo ha sido cambiada a %FlySpeed%!";
-
 
                 // Teleport Command
                 TeleportSelf = "§aHas sido teletransportado a §e %target%.";
@@ -219,6 +229,13 @@ public class Languages {
                 GameModeAdventure = "§aVous avez changé votre mode de jeu en §eAdventure§a!";
                 GameModeSpectator = "§aVous avez changé votre mode de jeu en §eSpectator§a!";
 
+                GameModeSurvival_Others = "§aVous avez changé le mode de jeu de %Player% en §eSurvival§a!";
+                GameModeCreative_Others = "§aVous avez changé le mode de jeu de %Player% en §eCreative§a!";
+                GameModeAdventure_Others = "§aVous avez changé le mode de jeu de %Player% en §eAdventure§a!";
+                GameModeSpectator_Others = "§aVous avez changé le mode de jeu de %Player% en §eSpectator§a!";
+
+                InvalidGameMode = "§cMode de jeu invalide!\n Utilisez /gm [mode]";
+
                 // BlockBreak Commands
                 BlockBreakActivated = "§aVous pouvez maintenant breaker des blocs!";
                 BlockBreakDeactivated = "§aVous ne pouvez plus breaker des blocs!";
@@ -228,6 +245,11 @@ public class Languages {
                 AdminStopGUI = "§cArrêter Serveur";
                 AdminReloadGUI = "§cRecharger Serveur";
                 AdminMaintenanceGUI = "§cMaintenance";
+
+                AdminStop = "§cArrêter Serveur dans 3m...";
+                AdminMaintenanceON = "§cMaintenance activée!";
+                AdminMaintenanceOFF = "§cMaintenance désactivée!";
+                MaintenanceKickMessage = "§cServeur en maintenance!";
 
                 // Heal Commands
                 HealAll = "§aVous avez été soigné!";
@@ -247,6 +269,60 @@ public class Languages {
                 // TimeSkip Command
                 TimeSkip = "§aSautant...";
 
+                break;
+            case "it":
+
+                // Italian Language
+
+                // Misc
+                NoPermission = "Non hai il permesso di eseguire questo!";
+                PlayerNotFound = "§cGiocatore %Player% non trovato!";
+                ConsoleExecute = "Non puoi eseguire questo da console!";
+
+                // GameMode Commands
+                GameModeSurvival = "§aHai cambiato il tuo modo di gioco in §eSurvival§a!";
+                GameModeCreative = "§aHai cambiato il tuo modo di gioco in §eCreative§a!";
+                GameModeAdventure = "§aHai cambiato il tuo modo di gioco in §eAdventure§a!";
+                GameModeSpectator = "§aHai cambiato il tuo modo di gioco in §eSpectator§a!";
+
+                GameModeSurvival_Others = "§aHai cambiato il modo di gioco di %Player% in §eSurvival§a!";
+                GameModeCreative_Others = "§aHai cambiato il modo di gioco di %Player% in §eCreative§a!";
+                GameModeAdventure_Others = "§aHai cambiato il modo di gioco di %Player% in §eAdventure§a!";
+                GameModeSpectator_Others = "§aHai cambiato il modo di gioco di %Player% in §eSpectator§a!";
+
+                InvalidGameMode = "§cModo di gioco non valido!\n Usa /gm [mode]";
+
+                // BlockBreak Commands
+                BlockBreakActivated = "§aOra puoi rompere i blocchi!";
+                BlockBreakDeactivated = "§aOra non puoi rompere i blocchi!";
+
+                // Admin Commands
+                AdminGUITitle = "GUI Admin";
+                AdminStopGUI = "§cArrestare Server";
+                AdminReloadGUI = "§cRicaricare Server";
+                AdminMaintenanceGUI = "§cManutenzione";
+
+                AdminStop = "§cArrestare Server in 3m...";
+                AdminMaintenanceON = "§cManutenzione attivata!";
+                AdminMaintenanceOFF = "§cManutenzione disattivata!";
+                MaintenanceKickMessage = "§cServer in manutenzione!";
+
+                // Heal Commands
+                HealAll = "§aTi sei curato!";
+
+                // Fly Commands
+                FlyEnabled = "§aHai attivato il volo!";
+                FlyDisabled = "§aHai disattivato il volo!";
+                FlySpeedMAX = "§aLa velocità di volo non può essere superiore a 10!";
+
+                // Teleport Command
+                TeleportSelf = "§aTi sei spostato a §e %target%.";
+                TeleportOther = "§a %executor% ti ha spostato a §e %target%.";
+                TeleportOtherToSelf = "§aTi sei spostato a §e %target%.";
+                TeleportAll = "§aTi sei spostato a tutti i giocatori.";
+
+                // TimeSkip Command
+                TimeSkip = "§aSaltando...";
                 break;
             default:
 
