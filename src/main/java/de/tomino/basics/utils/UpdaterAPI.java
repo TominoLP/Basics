@@ -3,7 +3,6 @@ package de.tomino.basics.utils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -120,6 +119,7 @@ public class UpdaterAPI {
             downloadUpdater(updaterFile, file -> {
                 try {
                     builder.start();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -129,6 +129,7 @@ public class UpdaterAPI {
         } else {
             builder.start();
         }
+
     }
 
     public static boolean needUpdate(String version1, String version2) {

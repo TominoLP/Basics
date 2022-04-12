@@ -154,7 +154,6 @@ public final class Basics extends JavaPlugin {
                         }
 
 
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
