@@ -30,7 +30,7 @@ import static de.tomino.basics.utils.Config.WEBHOOK;
 
 public final class Basics extends JavaPlugin {
 
-    private static final String currentVersion = "0.0.0";
+    private static final String currentVersion = "1.2.0";
     private static Basics instance;
 
     public static Basics getInstance() {
