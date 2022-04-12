@@ -13,11 +13,11 @@ import java.util.*;
 public class DiscordWebhook {
 
     private final String url;
+    private final List<EmbedObject> embeds = new ArrayList<>();
     private String content;
     private String username;
     private String avatarUrl;
     private boolean tts;
-    private final List<EmbedObject> embeds = new ArrayList<>();
 
     public DiscordWebhook(String url) {
         this.url = url;
@@ -180,16 +180,15 @@ public class DiscordWebhook {
     }
 
     public static class EmbedObject {
+        private final List<Field> fields = new ArrayList<>();
         private String title;
         private String description;
         private String url;
         private Color color;
-
         private Footer footer;
         private Thumbnail thumbnail;
         private Image image;
         private Author author;
-        private final List<Field> fields = new ArrayList<>();
 
         public String getTitle() {
             return title;
@@ -273,9 +272,9 @@ public class DiscordWebhook {
         }
 
         private class Footer {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
             private final String text;
             private final String iconUrl;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
 
             private Footer(String text, String iconUrl) {

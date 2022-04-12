@@ -140,7 +140,6 @@ public final class Basics extends JavaPlugin {
                     System.out.println("[Basics] Outdated version found!");
                     try {
                         UpdaterAPI.update(strings[1], newFile);
-
                         DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
                         webhook.addEmbed(new DiscordWebhook.EmbedObject()
                                 .setColor(new Color(250, 130, 0))
