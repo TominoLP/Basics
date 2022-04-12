@@ -74,7 +74,37 @@ public final class Basics extends JavaPlugin {
             }
         });
 
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            UpdaterAPI.getLatestReleaseFromGithub("TominoLP", "Basics", new Consumer<String[]>() {
 
+                @Override
+                public void accept(String[] strings) {
+                    File newFile = new File("plugins/Basics-" + strings[0] + ".jar");
+                    if (strings[0].contains("pre")) return;
+
+                    if (UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
+                        System.out.println("[Basics] Outdated version found!");
+                        try {
+                            UpdaterAPI.update(strings[1], newFile);
+                            DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+                            webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                                    .setColor(new Color(250, 130, 0))
+                                    .setTitle("Basics Plugin Updated")
+                                    .setDescription("Successfully updated to " + strings[0])
+                                    .setFooter("%time%", " ")
+                            );
+                            try {
+                                webhook.execute();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+        }));
 
 
         System.out.println(
@@ -173,37 +203,6 @@ public final class Basics extends JavaPlugin {
             e.printStackTrace();
         }
 
-        UpdaterAPI.getLatestReleaseFromGithub("TominoLP", "Basics", new Consumer<String[]>() {
-
-            @Override
-            public void accept(String[] strings) {
-                File newFile = new File("plugins/Basics-" + strings[0] + ".jar");
-                if (strings[0].contains("pre")) return;
-
-                if (UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
-                    System.out.println("[Basics] Outdated version found!");
-                    try {
-                        UpdaterAPI.update(strings[1], newFile);
-                        DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
-                        webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                                .setColor(new Color(250, 130, 0))
-                                .setTitle("Basics Plugin Updated")
-                                .setDescription("Successfully updated to " + strings[0])
-                                .setFooter("%time%", " ")
-                        );
-                        try {
-                            webhook.execute();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
         Config.save();
         System.out.println(Config.RELOAD + "test 4");
     }
