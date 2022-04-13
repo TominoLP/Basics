@@ -15,9 +15,9 @@ public class DiscordWebhook {
     private final String url;
     private final List<EmbedObject> embeds = new ArrayList<>();
     private String content;
-    private String username;
     private String avatarUrl;
-    private boolean tts;
+    private String username;
+    private boolean hypertext;
 
     public DiscordWebhook(String url) {
         this.url = url;
@@ -65,8 +65,8 @@ public class DiscordWebhook {
         this.avatarUrl = avatarUrl;
     }
 
-    public void setTts(boolean tts) {
-        this.tts = tts;
+    public void setHypertext(boolean hypertext) {
+        this.hypertext = hypertext;
     }
 
     public void addEmbed(EmbedObject embed) {
@@ -74,6 +74,11 @@ public class DiscordWebhook {
     }
 
     public void execute() throws IOException {
+
+        if (Config.WEBHOOK.equals("https://discordapp.com/api/webhooks/") || Config.WEBHOOK.equals("")) {
+            return;
+        }
+
         if (this.content == null && this.embeds.isEmpty()) {
             throw new IllegalArgumentException("Set content or add at least one EmbedObject");
         }
@@ -83,7 +88,7 @@ public class DiscordWebhook {
         json.put("content", this.content);
         json.put("username", this.username);
         json.put("avatar_url", this.avatarUrl);
-        json.put("tts", this.tts);
+        json.put("tts", this.hypertext);
 
         if (!this.embeds.isEmpty()) {
             List<JSONObject> embedObjects = new ArrayList<>();
@@ -95,11 +100,10 @@ public class DiscordWebhook {
                 jsonEmbed.put("description", embed.getDescription());
                 jsonEmbed.put("url", embed.getUrl());
 
-                if (embed.getColor() != null) {
+                if (!(embed.getColor() == null)) {
                     Color color = embed.getColor();
                     int rgb = color.getRed();
-                    rgb = (rgb << 8) + color.getGreen();
-                    rgb = (rgb << 8) + color.getBlue();
+                    rgb = (rgb << 8) + color.getRed();
 
                     jsonEmbed.put("color", rgb);
                 }
@@ -271,27 +275,7 @@ public class DiscordWebhook {
             return this;
         }
 
-        private class Footer {
-            private final String text;
-            private final String iconUrl;
-            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-
-
-            private Footer(String text, String iconUrl) {
-                this.text = text.replace("%time%", dateFormat.format(new Date()));
-                this.iconUrl = iconUrl;
-            }
-
-            private String getText() {
-                return text;
-            }
-
-            private String getIconUrl() {
-                return iconUrl;
-            }
-        }
-
-        private class Thumbnail {
+        private static class Thumbnail {
             private final String url;
 
             private Thumbnail(String url) {
@@ -303,7 +287,7 @@ public class DiscordWebhook {
             }
         }
 
-        private class Image {
+        private static class Image {
             private final String url;
 
             private Image(String url) {
@@ -315,7 +299,7 @@ public class DiscordWebhook {
             }
         }
 
-        private class Author {
+        private static class Author {
             private final String name;
             private final String url;
             private final String iconUrl;
@@ -339,7 +323,7 @@ public class DiscordWebhook {
             }
         }
 
-        private class Field {
+        private static class Field {
             private final String name;
             private final String value;
             private final boolean inline;
@@ -360,6 +344,26 @@ public class DiscordWebhook {
 
             private boolean isInline() {
                 return inline;
+            }
+        }
+
+        private class Footer {
+            private final String text;
+            private final String iconUrl;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
+
+            private Footer(String text, String iconUrl) {
+                this.text = text.replace("%time%", dateFormat.format(new Date()));
+                this.iconUrl = iconUrl;
+            }
+
+            private String getText() {
+                return text;
+            }
+
+            private String getIconUrl() {
+                return iconUrl;
             }
         }
     }

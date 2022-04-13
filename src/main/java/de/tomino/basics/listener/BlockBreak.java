@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+
 public class BlockBreak implements Listener {
 
     @EventHandler()
@@ -13,6 +14,7 @@ public class BlockBreak implements Listener {
 
         if (breaker.hasPermission("basics.blockbreak")) {
             event.setCancelled(false);
+
 
         } else {
 

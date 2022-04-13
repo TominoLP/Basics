@@ -1,11 +1,8 @@
 package de.tomino.basics.commands.miscellaneous;
 
-import de.tomino.basics.utils.Config;
-import de.tomino.basics.utils.Languages;
 import de.tomino.basics.utils.server.ServerMaintrance;
 import de.tomino.basics.utils.server.ServerReload;
 import de.tomino.basics.utils.server.ServerStop;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

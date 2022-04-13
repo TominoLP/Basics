@@ -30,7 +30,7 @@ import static de.tomino.basics.utils.Config.WEBHOOK;
 
 public final class Basics extends JavaPlugin {
 
-    private static final String currentVersion = "1.2.0";
+    private static final String currentVersion = "1.2.1";
     private static Basics instance;
 
     public static Basics getInstance() {
@@ -53,6 +53,8 @@ public final class Basics extends JavaPlugin {
             @Override
             public void accept(String[] strings) {
                 if (UpdaterAPI.compareVersions(currentVersion, strings[0].replace("v", "")) == -1) {
+
+
                     DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
                     webhook.addEmbed(new DiscordWebhook.EmbedObject()
                             .setTitle("Basics Update")
@@ -149,7 +151,6 @@ public final class Basics extends JavaPlugin {
                 e.printStackTrace();
             }
         }
-
 
 
         // Register commands
