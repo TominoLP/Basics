@@ -22,6 +22,7 @@ public class ServerMaintrance {
             Maintenance = false;
             player.sendMessage(Languages.AdminMaintenanceOFF);
             DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setTitle("Maintenance was turned off")
                     .setDescription("by " + player.getName())
@@ -39,6 +40,7 @@ public class ServerMaintrance {
             Maintenance = true;
             player.sendMessage(Languages.AdminMaintenanceON);
             DiscordWebhook webhook = new DiscordWebhook(WEBHOOK);
+
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setTitle("Maintenance was turned on")
                     .setDescription("by " + player.getName())

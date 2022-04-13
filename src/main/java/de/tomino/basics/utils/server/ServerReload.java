@@ -10,7 +10,7 @@ public class ServerReload {
 
         Config.CFG.set("restart", true);
         Config.save();
-        System.out.println(Config.RELOAD + " reload test");
+
         Bukkit.broadcastMessage("§c[§6Reload§c] §7Reloading...");
         Server server = Bukkit.getServer();
         server.reload();
